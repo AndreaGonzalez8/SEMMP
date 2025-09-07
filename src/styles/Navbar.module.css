@@ -1,0 +1,112 @@
+.navbar {
+  background-color: aliceblue;
+  height: 80px;
+  margin: 20px;
+  border-radius: 16px;
+  padding: 0rem;
+  box-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btnClicked {
+  transform: scale(0.9);
+  transition: transform 0.2s;
+}
+
+.logo {
+  border-radius: 120px;
+  transition: 0.3s;
+  width: 70px;
+}
+
+.perfilButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(155, 131, 79);
+  font-size: 20px;
+  width: 60px;
+  height: 40px;
+  padding: 2px;
+  border-radius: 160px;
+  transition: background-color 0.3s;
+}
+
+.perfilButton:hover {
+  background-color: rgb(126, 176, 199);
+}
+
+.navbarToggler {
+  border: none;
+  font-size: 1.25rem;
+}
+
+.navbarToggler:focus,
+.btnClose:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.navbarItem {
+  color: rgb(202, 147, 26); /* Aquí cambié a negro en lugar de anaranjado */
+  font-weight: 500;
+  position: relative;
+}
+
+.navbarItem:hover,
+.navLinkActive {
+  color: black;
+}
+
+@media (min-width: 991px) {
+  .logo {
+    width: 80px;
+  }
+
+  .navbarItem::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    width: 0;
+    height: 2px;
+    background-color: rgb(202, 147, 26);
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+  }
+
+  .navbarItem:hover::before,
+  .navLinkActive::before {
+    width: 100%;
+    visibility: visible;
+  }
+}
+
+/* Se mantiene la imagen de fondo */
+.heroSection {
+  background: url(../IMG/fondo.jpg) no-repeat center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+@media (max-width: 991px) {
+  .sidebar {
+    background-color: rgba(255, 255, 255, 0.205);
+    backdrop-filter: blur(10px);
+  }
+
+  .btnClose {
+    background-color: rgb(238, 175, 58);
+  }
+
+  .navbarItem {
+    background-color: aliceblue;
+    border-radius: 60px;
+    margin: 8px auto;
+    text-align: center;
+    display: block;
+    padding: 5px 10px;
+    width: 180px;
+  }
+}

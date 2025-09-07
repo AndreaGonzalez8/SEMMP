@@ -1,0 +1,78 @@
+/* Contenedor principal con degradado */
+.registro-container {
+  min-height: 100vh;
+  background: linear-gradient(to right, #003366, #4da6ff);
+  margin: 0;
+  padding: 0;
+}
+
+/* Tarjeta con efecto glassmorphism */
+.registro-card {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  color: #fff;
+  transition: transform 0.3s ease-in-out;
+}
+
+.registro-card:hover {
+  transform: scale(1.02);
+}
+
+/* Icono de registro */
+.registro-icon {
+  height: 90px;
+  width: 90px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* Botón degradado */
+.btn-submit {
+  background: linear-gradient(135deg, #003366, #4da6ff);
+  border: none;
+  font-weight: bold;
+  padding: 12px;
+  color: #fff;
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-submit:hover {
+  background: linear-gradient(135deg, #002244, #3399ff);
+  transform: scale(1.05);
+}
+
+/* Labels */
+.form-label {
+  font-weight: 600;
+  color: #f1f1f1;
+}
+
+/* Inputs y selects */
+.form-control,
+.form-select {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: #4da6ff;
+  color: #fff;
+  box-shadow: none;
+}
+
+/* Placeholder blanco */
+.form-control::placeholder {
+  color: #e6e6e6;
+  opacity: 0.8;
+}
