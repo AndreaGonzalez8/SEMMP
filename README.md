@@ -76,7 +76,7 @@ Antes de ejecutar el proyecto, asegúrate de tener instalado:
    CREATE DATABASE base_holamundo;
    ```
 
-````
+
 
 4. Configura las credenciales de conexión en el archivo:
 
