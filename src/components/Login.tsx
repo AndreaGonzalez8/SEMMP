@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Swal from "sweetalert2";
 import loginIcon from "../assets/img/login-icon.png";
 import usernameIcon from "../assets/img/username-icon.png";
 import passwordIcon from "../assets/img/password-icon.png";
@@ -35,15 +36,27 @@ const Login: React.FC = () => {
 
       if (response.ok && result.status === "success") {
         // Guardar datos del usuario en localStorage
-        localStorage.setItem("usuarioNombre", result.message.replace("Bienvenido, ", ""));
+        localStorage.setItem(
+          "usuarioNombre",
+          result.message.replace("Bienvenido, ", "")
+        );
         localStorage.setItem("usuarioRol", result.rol);
 
-        // Redirigir según rol
-        if (result.rol === "ADMIN") {
-          navigate("/admin/dashboard");
-        } else {
-          navigate("/dashboard");
-        }
+        // Mostrar mensaje de bienvenida
+        Swal.fire({
+          title: "¡Ingreso exitoso! 🎉",
+          text: result.message,
+          icon: "success",
+          confirmButtonColor: "#4da6ff",
+          confirmButtonText: "Continuar",
+        }).then(() => {
+          // Redirigir según rol después de cerrar la alerta
+          if (result.rol === "ADMIN") {
+            navigate("/admin/dashboard");
+          } else {
+            navigate("/dashboard");
+          }
+        });
       } else {
         setError(result.message || "Credenciales incorrectas");
       }
@@ -93,7 +106,11 @@ const Login: React.FC = () => {
                 border: "none",
               }}
             >
-              <img src={usernameIcon} alt="username-icon" style={{ height: "1rem" }} />
+              <img
+                src={usernameIcon}
+                alt="username-icon"
+                style={{ height: "1rem" }}
+              />
             </span>
             <input
               className="form-control rounded-end"
@@ -115,7 +132,11 @@ const Login: React.FC = () => {
                 border: "none",
               }}
             >
-              <img src={passwordIcon} alt="password-icon" style={{ height: "1rem" }} />
+              <img
+                src={passwordIcon}
+                alt="password-icon"
+                style={{ height: "1rem" }}
+              />
             </span>
             <input
               className="form-control rounded-end"
@@ -131,7 +152,11 @@ const Login: React.FC = () => {
           {/* Recordar / Olvidé contraseña */}
           <div className="d-flex justify-content-between align-items-center mb-3">
             <div className="form-check">
-              <input className="form-check-input" type="checkbox" id="remember" />
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="remember"
+              />
               <label htmlFor="remember" className="form-check-label">
                 Recuérdame
               </label>
@@ -139,7 +164,11 @@ const Login: React.FC = () => {
             <a
               href="#"
               className="text-decoration-none"
-              style={{ color: "#4da6ff", fontWeight: "500", fontSize: "0.9rem" }}
+              style={{
+                color: "#4da6ff",
+                fontWeight: "500",
+                fontSize: "0.9rem",
+              }}
             >
               ¿Olvidaste la contraseña?
             </a>
@@ -194,7 +223,11 @@ const Login: React.FC = () => {
           onMouseOver={(e) => (e.currentTarget.style.background = "#f5f5f5")}
           onMouseOut={(e) => (e.currentTarget.style.background = "#fff")}
         >
-          <img src={googleIcon} alt="google-icon" style={{ height: "1.6rem" }} />
+          <img
+            src={googleIcon}
+            alt="google-icon"
+            style={{ height: "1.6rem" }}
+          />
           <div className="fw-semibold text-secondary">Continuar con Google</div>
         </div>
 
